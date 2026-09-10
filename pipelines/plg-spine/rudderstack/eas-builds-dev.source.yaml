@@ -1,0 +1,9 @@
+version: rudder/v1
+kind: event-stream-source
+metadata:
+  name: eas-builds-dev
+spec:
+  id: eas-builds-dev
+  type: node
+  name: "EAS Builds Dev"
+  enabled: true

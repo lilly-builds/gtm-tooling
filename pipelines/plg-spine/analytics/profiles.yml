@@ -1,0 +1,14 @@
+eas_plg_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: clickhouse
+      schema: eas_plg
+      host: "{{ env_var('CLICKHOUSE_HOST') }}"
+      port: 9440
+      user: rudderstack_loader
+      password: "{{ env_var('CLICKHOUSE_RUDDERSTACK_LOADER_PASSWORD') }}"
+      secure: true
+      verify: true
+      driver: native
+      threads: 1

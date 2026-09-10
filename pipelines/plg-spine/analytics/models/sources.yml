@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: rudderstack
+    schema: eas_plg
+    tables:
+      - name: eas_build_succeeded

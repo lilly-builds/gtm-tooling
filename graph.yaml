@@ -1,0 +1,27 @@
+version: 1
+program_graph:
+  - id: skills/rudderstack-plg
+    type: skill
+    uses: [tools/rudderstack, knowledge/rudderstack-plg]
+  - id: skills/clickhouse-gtm
+    type: skill
+    uses: [tools/clickhouse, knowledge/clickhouse-gtm]
+  - id: skills/dbt-gtm
+    type: skill
+    uses: [tools/dbt, knowledge/dbt-brain]
+  - id: skills/plg-spine-run
+    type: skill
+    uses: [skills/rudderstack-plg, skills/clickhouse-gtm, skills/dbt-gtm, pipelines/plg-spine]
+data_flow:
+  - from: product-events
+    to: rudderstack
+    relation: emits_to
+  - from: rudderstack
+    to: clickhouse
+    relation: emits_to
+  - from: clickhouse
+    to: dbt
+    relation: modeled_by
+  - from: dbt
+    to: activation
+    relation: activates

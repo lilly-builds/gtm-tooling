@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: canonical_first_success
+    description: One deterministic representative of claimed first-success events per organization.
+    columns:
+      - name: org_id
+        data_tests:
+          - not_null
+          - unique
+      - name: event_id
+        data_tests:
+          - not_null
+  - name: pqa_accounts
+    description: Explainable organization score built from the canonical first-success model.
+    columns:
+      - name: org_id
+        data_tests:
+          - not_null
+          - unique

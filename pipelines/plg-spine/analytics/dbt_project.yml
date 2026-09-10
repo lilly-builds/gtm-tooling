@@ -1,0 +1,14 @@
+name: eas_plg_analytics
+version: '1.0'
+config-version: 2
+profile: eas_plg_analytics
+model-paths: [models]
+
+models:
+  eas_plg_analytics:
+    staging:
+      +materialized: view
+    quality:
+      +materialized: view
+    marts:
+      +materialized: view
