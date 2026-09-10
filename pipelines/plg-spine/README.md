@@ -21,4 +21,10 @@ set -a; source .env.local; set +a
 .venv/bin/dbt test --project-dir analytics --profiles-dir analytics --threads 1
 ```
 
-The dbt models are views for the sandbox. Query `eas_plg.pqa_accounts` for the organization-level output. A successful model run does not prove first-ever success; the sender's flag is still a trusted prototype input.
+Explain an account decision after the run:
+
+```bash
+./explain-account.sh org_test_123
+```
+
+The dbt models are views for the sandbox. A successful model run does not prove first-ever success; the sender's flag is still a trusted prototype input. HubSpot routing is not enabled yet, so this explains the score and recommended status rather than writing to a CRM.
